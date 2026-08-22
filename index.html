@@ -1,860 +1,269 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>GUDU MC — Official Store</title>
+    <title>GUDU MC | Official Store</title>
+
+    <link rel="stylesheet" href="style.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Orbitron:wght@500;600;700;800;900&display=swap" rel="stylesheet">
-
-    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
-    <!-- LOADER -->
-    <div class="loader" id="loader">
+    <!-- BACKGROUND -->
+    <div class="background"></div>
+    <div class="background-overlay"></div>
 
-        <div class="loader-logo">
+    <!-- PARTICLES -->
+    <div id="particles"></div>
+
+    <!-- NAVBAR -->
+    <header class="navbar">
+
+        <div class="logo">
+            <span class="logo-icon">✦</span>
             GUDU<span>MC</span>
         </div>
 
-        <div class="loader-line">
-            <i></i>
-        </div>
+        <nav>
+            <a href="#home">HOME</a>
+            <a href="#ranks">RANKS</a>
+            <a href="#coins">COINS</a>
+            <a href="#about">ABOUT</a>
+        </nav>
 
-        <p>INITIALIZING GUDU NETWORK</p>
+        <button class="cart-btn" onclick="openCart()">
+            🛒 <span id="cartCount">0</span>
+        </button>
 
-    </div>
-
-
-    <!-- CUSTOM CURSOR -->
-    <div class="cursor"></div>
-    <div class="cursor-ring"></div>
-
-
-    <!-- BACKGROUND -->
-    <div class="scene">
-
-        <div class="orb orb-1"></div>
-        <div class="orb orb-2"></div>
-
-        <div class="grid-floor"></div>
-
-        <div class="noise"></div>
-
-        <div id="particles"></div>
-
-    </div>
-
-
-    <!-- NAVIGATION -->
-    <nav class="nav">
-
-        <a href="#home" class="nav-logo">
-
-            <div class="nav-mark">
-                G
-            </div>
-
-            <div>
-                <strong>GUDU MC</strong>
-                <small>OFFICIAL STORE</small>
-            </div>
-
-        </a>
-
-
-        <div class="desktop-nav">
-
-            <a href="#home" class="active">
-                <span>01</span>
-                HOME
-            </a>
-
-            <a href="#ranks">
-                <span>02</span>
-                RANKS
-            </a>
-
-            <a href="#coins">
-                <span>03</span>
-                COINS
-            </a>
-
-            <a href="#support">
-                <span>04</span>
-                SUPPORT
-            </a>
-
-        </div>
-
-
-        <a
-            href="https://discord.gg/bSMf6xmZe"
-            target="_blank"
-            class="nav-discord"
-        >
-
-            <b>◈</b>
-
-            DISCORD
-
-        </a>
-
-    </nav>
+    </header>
 
 
     <!-- HERO -->
-    <main>
+    <main id="home">
 
-        <section class="hero" id="home">
+        <section class="hero">
 
+            <div class="hero-content">
 
-            <div class="hero-copy">
-
-                <div class="eyebrow">
-
-                    <i></i>
-
-                    GUDU MC NETWORK • ONLINE STORE
-
+                <div class="status">
+                    <span></span>
+                    GUDU MC NETWORK
                 </div>
 
-
-                <h1 class="hero-title">
-
-                    <span class="line">
-                        LEVEL
-                    </span>
-
-                    <span class="line orange">
-                        BEYOND.
-                    </span>
-
+                <h1>
+                    GUDU
+                    <strong>MC</strong>
                 </h1>
 
-
-                <p class="hero-description">
-
-                    Welcome to the official GUDU MC Store.
-                    Unlock exclusive ranks, collect GUDU Coins,
-                    unlock special perks and build your own legacy
-                    inside the GUDU universe.
-
-                </p>
-
-
-                <div class="hero-actions">
-
-                    <a
-                        href="#ranks"
-                        class="magnetic-button"
-                    >
-
-                        EXPLORE STORE
-
-                        <b>↗</b>
-
-                    </a>
-
-
-                    <a
-                        href="https://discord.gg/bSMf6xmZe"
-                        target="_blank"
-                        class="ghost-button"
-                    >
-
-                        CONTACT ON DISCORD
-
-                        <span>→</span>
-
-                    </a>
-
+                <div class="animated-line">
+                    <span></span>
                 </div>
 
+                <h2>OFFICIAL STORE</h2>
 
-                <div class="hero-meta">
+                <p>
+                    Upgrade your Minecraft experience.
+                    Unlock powerful ranks, exclusive items
+                    and become a legend of GUDU MC.
+                </p>
 
-                    <div>
+                <div class="hero-buttons">
+                    <a href="#ranks" class="primary-btn">
+                        EXPLORE STORE
+                        <span>→</span>
+                    </a>
 
-                        <strong>01</strong>
-
-                        <span>
-                            EXCLUSIVE
-                        </span>
-
-                    </div>
-
-
-                    <div>
-
-                        <strong>∞</strong>
-
-                        <span>
-                            POSSIBILITIES
-                        </span>
-
-                    </div>
-
-
-                    <div>
-
-                        <strong>24/7</strong>
-
-                        <span>
-                            COMMUNITY
-                        </span>
-
-                    </div>
-
+                    <a href="#about" class="secondary-btn">
+                        LEARN MORE
+                    </a>
                 </div>
 
             </div>
 
-
-            <!-- HERO VISUAL -->
-
-            <div class="hero-visual">
-
-                <div class="visual-number">
-                    01
-                </div>
-
-
-                <div class="circle circle-one"></div>
-                <div class="circle circle-two"></div>
-                <div class="circle circle-three"></div>
-
-
-                <div class="platform-glow"></div>
-
-
-                <div class="logo-platform">
-
-                    <img
-                        id="heroLogo"
-                        src="assets/gudu-fire.png"
-                        alt="GUDU MC"
-                    >
-
-                </div>
-
-
-                <div class="floating-card card-a">
-
-                    <small>
-                        NETWORK
-                    </small>
-
-                    <strong>
-                        GUDU MC
-                    </strong>
-
-                </div>
-
-
-                <div class="floating-card card-b">
-
-                    <small>
-                        STATUS
-                    </small>
-
-                    <strong>
-                        COMING SOON
-                    </strong>
-
-                </div>
-
-
-                <div class="scroll-label">
-
-                    <span></span>
-
-                    SCROLL TO EXPLORE
-
-                </div>
-
+            <div class="scroll">
+                <span></span>
+                SCROLL TO EXPLORE
             </div>
 
         </section>
-
-
-
-        <!-- TICKER -->
-
-        <div class="ticker">
-
-            <div class="ticker-track">
-
-                <span>
-                    GUDU MC
-                </span>
-
-                <i>✦</i>
-
-                <span>
-                    PLAY
-                </span>
-
-                <i>✦</i>
-
-                <span>
-                    LEVEL UP
-                </span>
-
-                <i>✦</i>
-
-                <span>
-                    BE LEGENDARY
-                </span>
-
-                <i>✦</i>
-
-                <span>
-                    GUDU COINS
-                </span>
-
-                <i>✦</i>
-
-                <span>
-                    EXCLUSIVE RANKS
-                </span>
-
-                <i>✦</i>
-
-                <span>
-                    PLAY
-                </span>
-
-                <i>✦</i>
-
-                <span>
-                    LEVEL UP
-                </span>
-
-                <i>✦</i>
-
-                <span>
-                    BE LEGENDARY
-                </span>
-
-                <i>✦</i>
-
-            </div>
-
-        </div>
-
 
 
         <!-- RANKS -->
+        <section id="ranks" class="shop-section">
 
-        <section class="ranks-section" id="ranks">
+            <div class="section-title">
 
-
-            <div class="section-head">
-
-                <div>
-
-                    <div class="section-index">
-                        02 / RANKS
-                    </div>
-
-                    <h2>
-                        CHOOSE YOUR
-                        <span>LEGACY.</span>
-                    </h2>
-
+                <div class="mini-title">
+                    ✦ GUDU MC STORE
                 </div>
 
+                <h2>
+                    CHOOSE YOUR
+                    <span>RANK</span>
+                </h2>
 
                 <p>
-
-                    Upgrade your journey with exclusive
-                    GUDU MC ranks. Each rank gives you
-                    unique perks and a different way
-                    to experience the network.
-
+                    Stand out from everyone else.
                 </p>
 
             </div>
 
 
-            <div class="rank-stage">
+            <div class="products">
 
+                <div class="product-card">
 
-                <!-- RANK 1 -->
+                    <div class="product-icon">⚡</div>
 
-                <article class="rank-card">
-
-                    <div class="rank-bg-number">
-                        I
+                    <div class="product-tag">
+                        STARTER
                     </div>
 
-
-                    <div class="rank-top">
-
-                        <span>
-                            GUDU / 001
-                        </span>
-
-                        <b>
-                            BASIC
-                        </b>
-
-                    </div>
-
-
-                    <div class="rank-icon">
-                        🛡️
-                    </div>
-
-
-                    <div class="rank-content">
-
-                        <div class="rank-name">
-                            WARRIOR
-                        </div>
-
-                        <p>
-                            Start your GUDU journey
-                            and unlock your first
-                            collection of perks.
-                        </p>
-
-
-                        <div class="perk-list">
-
-                            <span>✓ Custom Prefix</span>
-                            <span>✓ Rank Badge</span>
-                            <span>✓ Community Perks</span>
-                            <span>✓ Exclusive Chat Color</span>
-
-                        </div>
-
-                    </div>
-
-
-                    <div class="rank-bottom">
-
-                        <div>
-
-                            <small>
-                                CONTACT FOR
-                            </small>
-
-                            <strong>
-                                PRICE
-                            </strong>
-
-                        </div>
-
-
-                        <a
-                            href="https://discord.gg/bSMf6xmZe"
-                            target="_blank"
-                        >
-                            GET RANK →
-                        </a>
-
-                    </div>
-
-                </article>
-
-
-
-                <!-- RANK 2 -->
-
-                <article class="rank-card featured">
-
-                    <div class="rank-bg-number">
-                        II
-                    </div>
-
-
-                    <div class="rank-top">
-
-                        <span>
-                            GUDU / 002
-                        </span>
-
-                        <b>
-                            POPULAR
-                        </b>
-
-                    </div>
-
-
-                    <div class="rank-icon">
-                        👑
-                    </div>
-
-
-                    <div class="rank-content">
-
-                        <div class="rank-name">
-                            KING
-                        </div>
-
-                        <p>
-                            Become one of the elite
-                            and unlock powerful
-                            exclusive benefits.
-                        </p>
-
-
-                        <div class="perk-list">
-
-                            <span>✓ Everything in Warrior</span>
-                            <span>✓ Premium Prefix</span>
-                            <span>✓ Special Commands</span>
-                            <span>✓ Exclusive Cosmetics</span>
-
-                        </div>
-
-                    </div>
-
-
-                    <div class="rank-bottom">
-
-                        <div>
-
-                            <small>
-                                CONTACT FOR
-                            </small>
-
-                            <strong>
-                                PRICE
-                            </strong>
-
-                        </div>
-
-
-                        <a
-                            href="https://discord.gg/bSMf6xmZe"
-                            target="_blank"
-                        >
-                            GET RANK →
-                        </a>
-
-                    </div>
-
-                </article>
-
-
-
-                <!-- RANK 3 -->
-
-                <article class="rank-card">
-
-                    <div class="rank-bg-number">
-                        III
-                    </div>
-
-
-                    <div class="rank-top">
-
-                        <span>
-                            GUDU / 003
-                        </span>
-
-                        <b>
-                            ELITE
-                        </b>
-
-                    </div>
-
-
-                    <div class="rank-icon">
-                        🔥
-                    </div>
-
-
-                    <div class="rank-content">
-
-                        <div class="rank-name">
-                            LEGEND
-                        </div>
-
-                        <p>
-                            The ultimate GUDU experience
-                            for players who want
-                            something legendary.
-                        </p>
-
-
-                        <div class="perk-list">
-
-                            <span>✓ Everything in King</span>
-                            <span>✓ Legendary Prefix</span>
-                            <span>✓ Premium Cosmetics</span>
-                            <span>✓ Special Community Access</span>
-
-                        </div>
-
-                    </div>
-
-
-                    <div class="rank-bottom">
-
-                        <div>
-
-                            <small>
-                                CONTACT FOR
-                            </small>
-
-                            <strong>
-                                PRICE
-                            </strong>
-
-                        </div>
-
-
-                        <a
-                            href="https://discord.gg/bSMf6xmZe"
-                            target="_blank"
-                        >
-                            GET RANK →
-                        </a>
-
-                    </div>
-
-                </article>
-
-
-            </div>
-
-        </section>
-
-
-
-        <!-- COINS -->
-
-        <section class="coins-section" id="coins">
-
-
-            <div class="coin-layout">
-
-
-                <div class="coin-copy">
-
-                    <div class="section-index">
-                        03 / CURRENCY
-                    </div>
-
-
-                    <h2>
-
-                        ENTER THE
-                        <span>GUDU ECONOMY.</span>
-
-                    </h2>
-
+                    <h3>VIP</h3>
 
                     <p>
-
-                        GUDU Coins are your gateway to
-                        exclusive items, cosmetics,
-                        upgrades and future rewards.
-
-                        <br><br>
-
-                        Payment isn't automated yet.
-                        Simply contact us on Discord
-                        and our team will help you.
-
+                        Enter the VIP world with
+                        exclusive perks.
                     </p>
 
+                    <div class="price">
+                        <span>₹</span> 99
+                    </div>
 
-                    <a
-                        href="https://discord.gg/bSMf6xmZe"
-                        target="_blank"
-                        class="coin-contact"
-                    >
-
-                        CONTACT ON DISCORD →
-
-                    </a>
+                    <button onclick="addToCart('VIP', 99)">
+                        ADD TO CART
+                    </button>
 
                 </div>
 
 
+                <div class="product-card featured">
 
-                <div class="coin-machine">
-
-                    <div class="coin-orbit orbit-one"></div>
-                    <div class="coin-orbit orbit-two"></div>
-
-
-                    <div class="giant-coin">
-
-                        <span>
-                            G
-                        </span>
-
+                    <div class="popular">
+                        MOST POPULAR
                     </div>
 
+                    <div class="product-icon">👑</div>
 
-                    <div class="coin-label label-one">
-                        GUDU COINS
-                    </div>
-
-                    <div class="coin-label label-two">
+                    <div class="product-tag">
                         PREMIUM
                     </div>
 
-                    <div class="coin-label label-three">
-                        ✦ REWARDS
+                    <h3>PREMIUM</h3>
+
+                    <p>
+                        More power. More features.
+                        More GUDU.
+                    </p>
+
+                    <div class="price">
+                        <span>₹</span> 199
                     </div>
 
+                    <button onclick="addToCart('PREMIUM', 199)">
+                        ADD TO CART
+                    </button>
+
                 </div>
 
+
+                <div class="product-card">
+
+                    <div class="product-icon">💎</div>
+
+                    <div class="product-tag">
+                        ELITE
+                    </div>
+
+                    <h3>GOD</h3>
+
+                    <p>
+                        Become one of the strongest
+                        players on the network.
+                    </p>
+
+                    <div class="price">
+                        <span>₹</span> 399
+                    </div>
+
+                    <button onclick="addToCart('GOD', 399)">
+                        ADD TO CART
+                    </button>
+
+                </div>
 
             </div>
 
         </section>
 
 
+        <!-- COINS -->
+        <section id="coins" class="coins-section">
 
-        <!-- FEATURES -->
+            <div class="section-title">
 
-        <section class="feature-strip">
-
-
-            <div class="feature">
-
-                <span>01</span>
-
-                <div>
-
-                    <strong>
-                        EXCLUSIVE
-                    </strong>
-
-                    <p>
-                        Special items made
-                        for GUDU players.
-                    </p>
-
+                <div class="mini-title">
+                    ✦ GUDU CURRENCY
                 </div>
-
-            </div>
-
-
-            <div class="feature">
-
-                <span>02</span>
-
-                <div>
-
-                    <strong>
-                        COMMUNITY
-                    </strong>
-
-                    <p>
-                        Join our growing
-                        Discord community.
-                    </p>
-
-                </div>
-
-            </div>
-
-
-            <div class="feature">
-
-                <span>03</span>
-
-                <div>
-
-                    <strong>
-                        SUPPORT
-                    </strong>
-
-                    <p>
-                        Need help?
-                        We're here for you.
-                    </p>
-
-                </div>
-
-            </div>
-
-
-            <div class="feature">
-
-                <span>04</span>
-
-                <div>
-
-                    <strong>
-                        FUTURE READY
-                    </strong>
-
-                    <p>
-                        More GUDU features
-                        are coming soon.
-                    </p>
-
-                </div>
-
-            </div>
-
-
-        </section>
-
-
-
-        <!-- SUPPORT -->
-
-        <section class="support" id="support">
-
-            <div class="support-inner">
-
-                <div class="support-orb"></div>
-
-
-                <div class="section-index">
-                    04 / SUPPORT
-                </div>
-
 
                 <h2>
-
-                    NEED
-                    <span>HELP?</span>
-
+                    GUDU <span>COINS</span>
                 </h2>
 
-
                 <p>
-
-                    All purchases are currently handled
-                    manually through our Discord.
-                    Open a ticket or contact the GUDU MC team
-                    and we'll help you with your order.
-
+                    Get coins and unlock more possibilities.
                 </p>
 
+            </div>
 
-                <a
-                    href="https://discord.gg/bSMf6xmZe"
-                    target="_blank"
-                    class="discord-big"
-                >
 
-                    <b>◈</b>
+            <div class="coin-box">
 
-                    CONTACT GUDU MC
+                <div class="coin">
+                    🪙
+                </div>
 
-                    <span>→</span>
+                <div>
+                    <h3>GUDU COINS</h3>
+                    <p>Coming soon...</p>
+                </div>
 
-                </a>
+            </div>
+
+        </section>
+
+
+        <!-- ABOUT -->
+        <section id="about" class="about-section">
+
+            <div class="about-box">
+
+                <div class="mini-title">
+                    ✦ ABOUT GUDU MC
+                </div>
+
+                <h2>
+                    BUILT FOR
+                    <span>LEGENDS.</span>
+                </h2>
+
+                <p>
+                    GUDU MC is more than just a Minecraft
+                    server. It's a community where players
+                    build, fight, explore and create their
+                    own stories.
+                </p>
+
+                <div class="server-ip">
+                    <span>SERVER IP</span>
+                    <strong>PLAY.GUDUMC</strong>
+                </div>
 
             </div>
 
@@ -863,84 +272,51 @@
     </main>
 
 
+    <!-- CART -->
+    <div id="cartModal" class="cart-modal">
 
-    <!-- FOOTER -->
+        <div class="cart-window">
+
+            <button class="close" onclick="closeCart()">×</button>
+
+            <div class="mini-title">
+                ✦ YOUR CART
+            </div>
+
+            <h2>SHOPPING CART</h2>
+
+            <div id="cartItems">
+                <p class="empty">Your cart is empty.</p>
+            </div>
+
+            <div class="cart-total">
+                TOTAL:
+                <strong>₹<span id="cartTotal">0</span></strong>
+            </div>
+
+            <button class="checkout">
+                CHECKOUT
+            </button>
+
+        </div>
+
+    </div>
+
 
     <footer>
 
         <div class="footer-logo">
-
             GUDU<span>MC</span>
-
         </div>
 
-
-        <div>
-
-            © 2026 GUDU MC
-            • ALL RIGHTS RESERVED
-
-        </div>
-
-
-        <a
-            href="https://discord.gg/bSMf6xmZe"
-            target="_blank"
-        >
-            DISCORD
-        </a>
+        <p>
+            © 2026 GUDU MC. All rights reserved.
+        </p>
 
     </footer>
-
-
-
-    <!-- MOBILE NAV -->
-
-    <div class="mobile-nav">
-
-        <a href="#home">
-
-            <span>⌂</span>
-
-            HOME
-
-        </a>
-
-
-        <a href="#ranks">
-
-            <span>♛</span>
-
-            RANKS
-
-        </a>
-
-
-        <a href="#coins">
-
-            <span>◉</span>
-
-            COINS
-
-        </a>
-
-
-        <a
-            href="https://discord.gg/bSMf6xmZe"
-            target="_blank"
-        >
-
-            <span>◈</span>
-
-            DISCORD
-
-        </a>
-
-    </div>
 
 
     <script src="script.js"></script>
 
 </body>
-
 </html>
