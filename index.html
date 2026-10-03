@@ -1,322 +1,1625 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>GUDU MC | Official Store</title>
+<title>GUDU MC | Rank Shop</title>
 
-    <link rel="stylesheet" href="style.css">
+<style>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+/* =========================
+   RESET
+========================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    background:#03050a;
+    color:#fff;
+    min-height:100vh;
+    overflow-x:hidden;
+}
+
+
+/* =========================
+   ANIMATED BACKGROUND
+========================= */
+
+.background{
+    position:fixed;
+    inset:0;
+    z-index:-10;
+    overflow:hidden;
+
+    background:
+        radial-gradient(
+            circle at 15% 20%,
+            rgba(139,92,246,.18),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 85% 75%,
+            rgba(0,217,255,.12),
+            transparent 30%
+        ),
+        linear-gradient(
+            135deg,
+            #020308,
+            #080b13 50%,
+            #020308
+        );
+}
+
+.grid{
+    position:absolute;
+    width:200%;
+    height:200%;
+    inset:-50%;
+
+    background-image:
+        linear-gradient(
+            rgba(255,255,255,.025) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,.025) 1px,
+            transparent 1px
+        );
+
+    background-size:55px 55px;
+
+    transform:rotate(15deg);
+
+    animation:gridMove 18s linear infinite;
+}
+
+@keyframes gridMove{
+
+    from{
+        transform:rotate(15deg) translate(0,0);
+    }
+
+    to{
+        transform:rotate(15deg) translate(55px,55px);
+    }
+
+}
+
+
+/* =========================
+   GLOW ORBS
+========================= */
+
+.orb{
+    position:absolute;
+
+    width:420px;
+    height:420px;
+
+    border-radius:50%;
+
+    filter:blur(110px);
+
+    opacity:.15;
+
+    animation:orbFloat 8s ease-in-out infinite;
+}
+
+.orb.one{
+    background:#8b5cf6;
+
+    top:-170px;
+    left:-120px;
+}
+
+.orb.two{
+    background:#00d9ff;
+
+    right:-170px;
+    bottom:-170px;
+
+    animation-delay:2s;
+}
+
+.orb.three{
+    background:#ff2bd6;
+
+    width:280px;
+    height:280px;
+
+    left:45%;
+    top:40%;
+
+    opacity:.08;
+
+    animation-delay:4s;
+}
+
+@keyframes orbFloat{
+
+    0%,100%{
+        transform:translateY(0) scale(1);
+    }
+
+    50%{
+        transform:translateY(-45px) scale(1.08);
+    }
+
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+header{
+    position:sticky;
+    top:0;
+    z-index:50;
+
+    height:76px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    padding:0 7%;
+
+    background:rgba(3,5,10,.72);
+
+    backdrop-filter:blur(18px);
+
+    border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.logo{
+    font-size:25px;
+    font-weight:1000;
+
+    letter-spacing:3px;
+}
+
+.logo span{
+    color:#9b6cff;
+
+    text-shadow:
+        0 0 20px rgba(155,108,255,.6);
+}
+
+.discord{
+    text-decoration:none;
+
+    color:white;
+
+    padding:11px 20px;
+
+    border:1px solid rgba(139,92,246,.45);
+
+    border-radius:10px;
+
+    background:rgba(139,92,246,.10);
+
+    font-weight:700;
+
+    transition:.25s;
+}
+
+.discord:hover{
+    background:#8b5cf6;
+
+    transform:translateY(-2px);
+
+    box-shadow:
+        0 0 30px rgba(139,92,246,.45);
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+    text-align:center;
+
+    padding:
+        95px
+        20px
+        65px;
+}
+
+.badge{
+    display:inline-block;
+
+    padding:8px 16px;
+
+    border:1px solid rgba(255,255,255,.12);
+
+    background:rgba(255,255,255,.04);
+
+    border-radius:30px;
+
+    color:#bdb8ca;
+
+    font-size:12px;
+
+    letter-spacing:1.5px;
+
+    margin-bottom:24px;
+
+    animation:badgePulse 3s ease-in-out infinite;
+}
+
+@keyframes badgePulse{
+
+    0%,100%{
+        box-shadow:0 0 0 rgba(139,92,246,0);
+    }
+
+    50%{
+        box-shadow:
+            0 0 25px rgba(139,92,246,.12);
+    }
+
+}
+
+.hero h1{
+
+    font-size:
+        clamp(50px,8vw,92px);
+
+    line-height:.94;
+
+    font-weight:1000;
+
+    letter-spacing:-5px;
+}
+
+.hero h1 span{
+
+    background:
+        linear-gradient(
+            90deg,
+            #8b5cf6,
+            #00d9ff,
+            #ff4fd8,
+            #8b5cf6
+        );
+
+    background-size:300%;
+
+    -webkit-background-clip:text;
+
+    color:transparent;
+
+    animation:gradientMove 5s linear infinite;
+}
+
+@keyframes gradientMove{
+
+    0%{
+        background-position:0%;
+    }
+
+    100%{
+        background-position:300%;
+    }
+
+}
+
+
+/* =========================
+   HERO DESCRIPTION
+========================= */
+
+.hero-description{
+
+    max-width:780px;
+
+    margin:
+        27px
+        auto
+        18px;
+
+    color:#aeb3c1;
+
+    font-size:16px;
+
+    line-height:1.85;
+}
+
+.hero-description strong{
+
+    color:#a477ff;
+
+    text-shadow:
+        0 0 18px rgba(164,119,255,.35);
+}
+
+
+/* =========================
+   HERO TAGS
+========================= */
+
+.hero-tags{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    flex-wrap:wrap;
+
+    gap:10px;
+
+    margin-top:23px;
+}
+
+.hero-tags span{
+
+    padding:
+        9px
+        14px;
+
+    border-radius:30px;
+
+    border:
+        1px solid
+        rgba(139,92,246,.2);
+
+    background:
+        rgba(139,92,246,.06);
+
+    color:#b9bdca;
+
+    font-size:11px;
+
+    font-weight:800;
+
+    letter-spacing:.5px;
+
+    transition:.25s;
+}
+
+.hero-tags span:hover{
+
+    transform:translateY(-3px);
+
+    border-color:
+        rgba(139,92,246,.6);
+
+    background:
+        rgba(139,92,246,.13);
+
+    color:white;
+
+    box-shadow:
+        0 8px 25px
+        rgba(139,92,246,.15);
+}
+
+
+/* =========================
+   SHOP
+========================= */
+
+.shop{
+
+    width:min(1250px,92%);
+
+    margin:auto;
+
+    padding-bottom:100px;
+}
+
+.section-title{
+
+    text-align:center;
+
+    margin-bottom:35px;
+}
+
+.section-title h2{
+
+    font-size:30px;
+
+    font-weight:1000;
+}
+
+.section-title p{
+
+    color:#747a89;
+
+    font-size:13px;
+
+    margin-top:8px;
+}
+
+
+/* =========================
+   RANK GRID
+========================= */
+
+.ranks{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:20px;
+}
+
+
+/* =========================
+   RANK CARD
+========================= */
+
+.rank-card{
+
+    position:relative;
+
+    overflow:hidden;
+
+    border:
+        1px solid
+        rgba(255,255,255,.09);
+
+    border-radius:20px;
+
+    padding:29px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.07),
+            rgba(255,255,255,.025)
+        );
+
+    backdrop-filter:blur(15px);
+
+    transition:
+        transform .3s ease,
+        border-color .3s ease,
+        box-shadow .3s ease;
+}
+
+.rank-card:hover{
+
+    transform:translateY(-9px);
+
+    border-color:
+        color-mix(
+            in srgb,
+            var(--rank-color),
+            transparent 35%
+        );
+
+    box-shadow:
+        0 25px 65px
+        rgba(0,0,0,.4);
+}
+
+
+/* CARD GLOW */
+
+.rank-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:190px;
+    height:190px;
+
+    border-radius:50%;
+
+    background:
+        var(--rank-color);
+
+    filter:blur(100px);
+
+    opacity:.13;
+
+    right:-80px;
+    top:-80px;
+
+    pointer-events:none;
+}
+
+
+/* CARD SHINE */
+
+.rank-card::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:120px;
+    height:400px;
+
+    background:
+        linear-gradient(
+            transparent,
+            rgba(255,255,255,.05),
+            transparent
+        );
+
+    transform:rotate(25deg);
+
+    left:-160px;
+    top:-100px;
+
+    transition:.7s;
+}
+
+.rank-card:hover::after{
+
+    left:120%;
+}
+
+
+/* =========================
+   RANK ICON
+========================= */
+
+.rank-icon{
+
+    font-size:43px;
+
+    margin-bottom:18px;
+
+    filter:
+        drop-shadow(
+            0 0 14px
+            rgba(255,255,255,.12)
+        );
+}
+
+
+/* =========================
+   RANK NAME
+========================= */
+
+.rank-name{
+
+    color:
+        var(--rank-color);
+
+    font-size:27px;
+
+    font-weight:1000;
+
+    letter-spacing:1px;
+}
+
+.rank-description{
+
+    color:#969baa;
+
+    font-size:14px;
+
+    margin-top:9px;
+
+    min-height:42px;
+
+    line-height:1.5;
+}
+
+
+/* =========================
+   FEATURES
+========================= */
+
+.features{
+
+    list-style:none;
+
+    margin:25px 0;
+}
+
+.features li{
+
+    color:#d4d5dc;
+
+    font-size:14px;
+
+    margin:12px 0;
+}
+
+.features li::before{
+
+    content:"✓";
+
+    color:
+        var(--rank-color);
+
+    font-weight:bold;
+
+    margin-right:9px;
+}
+
+
+/* =========================
+   PRICE
+========================= */
+
+.price{
+
+    font-size:28px;
+
+    font-weight:1000;
+
+    margin:22px 0;
+}
+
+.price small{
+
+    font-size:12px;
+
+    color:#777d8b;
+
+    font-weight:normal;
+}
+
+
+/* =========================
+   BUY BUTTON
+========================= */
+
+.buy{
+
+    width:100%;
+
+    border:none;
+
+    cursor:pointer;
+
+    padding:14px;
+
+    border-radius:11px;
+
+    color:white;
+
+    background:
+        var(--rank-color);
+
+    font-size:15px;
+
+    font-weight:900;
+
+    transition:.25s;
+
+    position:relative;
+
+    z-index:2;
+}
+
+.buy:hover{
+
+    transform:translateY(-3px);
+
+    filter:brightness(1.15);
+
+    box-shadow:
+        0 10px 35px
+        color-mix(
+            in srgb,
+            var(--rank-color),
+            transparent 55%
+        );
+}
+
+.buy:active{
+
+    transform:scale(.97);
+}
+
+
+/* =========================
+   RANK COLORS
+========================= */
+
+.deadliest{
+    --rank-color:#ff3030;
+}
+
+.gudugang{
+    --rank-color:#ff8a00;
+}
+
+.panda{
+    --rank-color:#eeeeee;
+}
+
+.king{
+    --rank-color:#ffd43b;
+}
+
+.queen{
+    --rank-color:#ff63c3;
+}
+
+.legend{
+    --rank-color:#00d9ff;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+
+    text-align:center;
+
+    padding:35px 20px;
+
+    color:#666b79;
+
+    border-top:
+        1px solid
+        rgba(255,255,255,.06);
+}
+
+footer strong{
+
+    color:#9b6cff;
+}
+
+
+/* =========================
+   POPUP
+========================= */
+
+.popup{
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:100;
+
+    display:none;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:20px;
+
+    background:
+        rgba(0,0,0,.78);
+
+    backdrop-filter:blur(9px);
+}
+
+.popup.active{
+
+    display:flex;
+}
+
+
+/* =========================
+   POPUP BOX
+========================= */
+
+.popup-box{
+
+    width:
+        min(440px,100%);
+
+    background:#0b0f18;
+
+    border:
+        1px solid
+        rgba(139,92,246,.45);
+
+    border-radius:22px;
+
+    padding:36px;
+
+    text-align:center;
+
+    box-shadow:
+        0 30px 100px
+        rgba(0,0,0,.75);
+
+    animation:
+        popupIn .25s ease;
+}
+
+@keyframes popupIn{
+
+    from{
+        opacity:0;
+        transform:scale(.9)
+        translateY(15px);
+    }
+
+    to{
+        opacity:1;
+        transform:scale(1)
+        translateY(0);
+    }
+
+}
+
+.popup-icon{
+
+    font-size:47px;
+
+    margin-bottom:16px;
+}
+
+.popup-box h2{
+
+    font-size:26px;
+
+    margin-bottom:13px;
+}
+
+.popup-box p{
+
+    color:#9298a7;
+
+    line-height:1.65;
+
+    font-size:14px;
+}
+
+
+/* =========================
+   DISCORD TICKET BUTTON
+========================= */
+
+.ticket{
+
+    display:block;
+
+    margin-top:24px;
+
+    padding:15px;
+
+    border-radius:11px;
+
+    background:#5865f2;
+
+    color:white;
+
+    text-decoration:none;
+
+    font-weight:900;
+
+    transition:.2s;
+
+    box-shadow:
+        0 8px 25px
+        rgba(88,101,242,.15);
+}
+
+.ticket:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:
+        0 12px 35px
+        rgba(88,101,242,.4);
+}
+
+
+/* =========================
+   CLOSE
+========================= */
+
+.close{
+
+    margin-top:12px;
+
+    width:100%;
+
+    padding:12px;
+
+    border:
+        1px solid
+        rgba(255,255,255,.1);
+
+    background:
+        rgba(255,255,255,.04);
+
+    color:#aaa;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    transition:.2s;
+}
+
+.close:hover{
+
+    background:
+        rgba(255,255,255,.08);
+
+    color:white;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:900px){
+
+    .ranks{
+
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+
+}
+
+@media(max-width:600px){
+
+    header{
+
+        padding:0 20px;
+    }
+
+    .discord{
+
+        display:none;
+    }
+
+    .hero{
+
+        padding-top:65px;
+    }
+
+    .hero h1{
+
+        letter-spacing:-3px;
+    }
+
+    .hero-description{
+
+        font-size:14px;
+    }
+
+    .ranks{
+
+        grid-template-columns:1fr;
+    }
+
+    .rank-card{
+
+        padding:25px;
+    }
+
+}
+
+</style>
 </head>
+
 
 <body>
 
-    <!-- BACKGROUND -->
-    <div class="background"></div>
-    <div class="background-overlay"></div>
 
-    <!-- PARTICLES -->
-    <div id="particles"></div>
+<!-- =========================
+     BACKGROUND
+========================= -->
 
-    <!-- NAVBAR -->
-    <header class="navbar">
+<div class="background">
 
-        <div class="logo">
-            <span class="logo-icon">✦</span>
-            GUDU<span>MC</span>
-        </div>
+    <div class="grid"></div>
 
-        <nav>
-            <a href="#home">HOME</a>
-            <a href="#ranks">RANKS</a>
-            <a href="#coins">COINS</a>
-            <a href="#about">ABOUT</a>
-        </nav>
+    <div class="orb one"></div>
 
-        <button class="cart-btn" onclick="openCart()">
-            🛒 <span id="cartCount">0</span>
-        </button>
+    <div class="orb two"></div>
 
-    </header>
+    <div class="orb three"></div>
 
+</div>
 
-    <!-- HERO -->
-    <main id="home">
 
-        <section class="hero">
 
-            <div class="hero-content">
+<!-- =========================
+     HEADER
+========================= -->
 
-                <div class="status">
-                    <span></span>
-                    GUDU MC NETWORK
-                </div>
+<header>
 
-                <h1>
-                    GUDU
-                    <strong>MC</strong>
-                </h1>
+    <div class="logo">
+        GUDU <span>MC</span>
+    </div>
 
-                <div class="animated-line">
-                    <span></span>
-                </div>
+    <a
+        class="discord"
+        href="https://discord.gg/HmHvmCQDX"
+        target="_blank"
+        rel="noopener noreferrer"
+    >
+        💬 Discord
+    </a>
 
-                <h2>OFFICIAL STORE</h2>
+</header>
 
-                <p>
-                    Upgrade your Minecraft experience.
-                    Unlock powerful ranks, exclusive items
-                    and become a legend of GUDU MC.
-                </p>
 
-                <div class="hero-buttons">
-                    <a href="#ranks" class="primary-btn">
-                        EXPLORE STORE
-                        <span>→</span>
-                    </a>
 
-                    <a href="#about" class="secondary-btn">
-                        LEARN MORE
-                    </a>
-                </div>
+<!-- =========================
+     HERO
+========================= -->
 
-            </div>
+<section class="hero">
 
-            <div class="scroll">
-                <span></span>
-                SCROLL TO EXPLORE
-            </div>
+    <div class="badge">
+        ⚡ GUDU MC NETWORK • OFFICIAL STORE
+    </div>
 
-        </section>
 
+    <h1>
 
-        <!-- RANKS -->
-        <section id="ranks" class="shop-section">
+        CHOOSE YOUR<br>
 
-            <div class="section-title">
+        <span>RANK</span>
 
-                <div class="mini-title">
-                    ✦ GUDU MC STORE
-                </div>
+    </h1>
 
-                <h2>
-                    CHOOSE YOUR
-                    <span>RANK</span>
-                </h2>
 
-                <p>
-                    Stand out from everyone else.
-                </p>
+    <p class="hero-description">
 
-            </div>
+        Welcome to
+        <strong>GUDU MC</strong>
+        — one of the most exciting Minecraft experiences
+        built for players who want more. Join a powerful
+        community, unlock exclusive ranks, dominate the
+        server and make your name legendary.
 
+    </p>
 
-            <div class="products">
 
-                <div class="product-card">
+    <div class="hero-tags">
 
-                    <div class="product-icon">⚡</div>
+        <span>
+            ⚔️ EPIC GAMEPLAY
+        </span>
 
-                    <div class="product-tag">
-                        STARTER
-                    </div>
+        <span>
+            👑 EXCLUSIVE RANKS
+        </span>
 
-                    <h3>VIP</h3>
+        <span>
+            🌎 AMAZING COMMUNITY
+        </span>
 
-                    <p>
-                        Enter the VIP world with
-                        exclusive perks.
-                    </p>
+        <span>
+            🔥 NONSTOP FUN
+        </span>
 
-                    <div class="price">
-                        <span>₹</span> 99
-                    </div>
+    </div>
 
-                    <button onclick="addToCart('VIP', 99)">
-                        ADD TO CART
-                    </button>
+</section>
 
-                </div>
 
 
-                <div class="product-card featured">
+<!-- =========================
+     SHOP
+========================= -->
 
-                    <div class="popular">
-                        MOST POPULAR
-                    </div>
+<main class="shop">
 
-                    <div class="product-icon">👑</div>
 
-                    <div class="product-tag">
-                        PREMIUM
-                    </div>
+    <div class="section-title">
 
-                    <h3>PREMIUM</h3>
+        <h2>
+            GUDU MC RANKS
+        </h2>
 
-                    <p>
-                        More power. More features.
-                        More GUDU.
-                    </p>
-
-                    <div class="price">
-                        <span>₹</span> 199
-                    </div>
-
-                    <button onclick="addToCart('PREMIUM', 199)">
-                        ADD TO CART
-                    </button>
-
-                </div>
-
-
-                <div class="product-card">
-
-                    <div class="product-icon">💎</div>
-
-                    <div class="product-tag">
-                        ELITE
-                    </div>
-
-                    <h3>GOD</h3>
-
-                    <p>
-                        Become one of the strongest
-                        players on the network.
-                    </p>
-
-                    <div class="price">
-                        <span>₹</span> 399
-                    </div>
-
-                    <button onclick="addToCart('GOD', 399)">
-                        ADD TO CART
-                    </button>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- COINS -->
-        <section id="coins" class="coins-section">
-
-            <div class="section-title">
-
-                <div class="mini-title">
-                    ✦ GUDU CURRENCY
-                </div>
-
-                <h2>
-                    GUDU <span>COINS</span>
-                </h2>
-
-                <p>
-                    Get coins and unlock more possibilities.
-                </p>
-
-            </div>
-
-
-            <div class="coin-box">
-
-                <div class="coin">
-                    🪙
-                </div>
-
-                <div>
-                    <h3>GUDU COINS</h3>
-                    <p>Coming soon...</p>
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- ABOUT -->
-        <section id="about" class="about-section">
-
-            <div class="about-box">
-
-                <div class="mini-title">
-                    ✦ ABOUT GUDU MC
-                </div>
-
-                <h2>
-                    BUILT FOR
-                    <span>LEGENDS.</span>
-                </h2>
-
-                <p>
-                    GUDU MC is more than just a Minecraft
-                    server. It's a community where players
-                    build, fight, explore and create their
-                    own stories.
-                </p>
-
-                <div class="server-ip">
-                    <span>SERVER IP</span>
-                    <strong>PLAY.GUDUMC</strong>
-                </div>
-
-            </div>
-
-        </section>
-
-    </main>
-
-
-    <!-- CART -->
-    <div id="cartModal" class="cart-modal">
-
-        <div class="cart-window">
-
-            <button class="close" onclick="closeCart()">×</button>
-
-            <div class="mini-title">
-                ✦ YOUR CART
-            </div>
-
-            <h2>SHOPPING CART</h2>
-
-            <div id="cartItems">
-                <p class="empty">Your cart is empty.</p>
-            </div>
-
-            <div class="cart-total">
-                TOTAL:
-                <strong>₹<span id="cartTotal">0</span></strong>
-            </div>
-
-            <button class="checkout">
-                CHECKOUT
-            </button>
-
-        </div>
+        <p>
+            Choose your rank and become part of GUDU MC.
+        </p>
 
     </div>
 
 
-    <footer>
 
-        <div class="footer-logo">
-            GUDU<span>MC</span>
+    <div class="ranks">
+
+
+        <!-- =====================
+             DEADLIEST
+        ====================== -->
+
+        <div class="rank-card deadliest">
+
+            <div class="rank-icon">
+                💀
+            </div>
+
+            <div class="rank-name">
+                DEADLIEST
+            </div>
+
+            <div class="rank-description">
+                The ultimate rank for the most dangerous players.
+            </div>
+
+            <ul class="features">
+
+                <li>
+                    Exclusive Deadliest Prefix
+                </li>
+
+                <li>
+                    Special Rank Permissions
+                </li>
+
+                <li>
+                    Priority Support
+                </li>
+
+                <li>
+                    Exclusive Commands
+                </li>
+
+            </ul>
+
+            <div class="price">
+                $9.99
+                <small>/ lifetime</small>
+            </div>
+
+            <button
+                class="buy"
+                onclick="purchase('DEADLIEST')"
+            >
+                PURCHASE
+            </button>
+
         </div>
 
-        <p>
-            © 2026 GUDU MC. All rights reserved.
+
+
+        <!-- =====================
+             GUDU GANG
+        ====================== -->
+
+        <div class="rank-card gudugang">
+
+            <div class="rank-icon">
+                🔥
+            </div>
+
+            <div class="rank-name">
+                GUDU GANG
+            </div>
+
+            <div class="rank-description">
+                Become part of the legendary GUDU Gang.
+            </div>
+
+            <ul class="features">
+
+                <li>
+                    GUDU Gang Prefix
+                </li>
+
+                <li>
+                    Special Rank Permissions
+                </li>
+
+                <li>
+                    Priority Support
+                </li>
+
+                <li>
+                    Exclusive Commands
+                </li>
+
+            </ul>
+
+            <div class="price">
+                $6.99
+                <small>/ lifetime</small>
+            </div>
+
+            <button
+                class="buy"
+                onclick="purchase('GUDU GANG')"
+            >
+                PURCHASE
+            </button>
+
+        </div>
+
+
+
+        <!-- =====================
+             PANDA
+        ====================== -->
+
+        <div class="rank-card panda">
+
+            <div class="rank-icon">
+                🐼
+            </div>
+
+            <div class="rank-name">
+                PANDA
+            </div>
+
+            <div class="rank-description">
+                Cute name. Powerful rank.
+            </div>
+
+            <ul class="features">
+
+                <li>
+                    Panda Prefix
+                </li>
+
+                <li>
+                    Special Rank Permissions
+                </li>
+
+                <li>
+                    Priority Support
+                </li>
+
+                <li>
+                    Exclusive Commands
+                </li>
+
+            </ul>
+
+            <div class="price">
+                $4.99
+                <small>/ lifetime</small>
+            </div>
+
+            <button
+                class="buy"
+                onclick="purchase('PANDA')"
+            >
+                PURCHASE
+            </button>
+
+        </div>
+
+
+
+        <!-- =====================
+             KING
+        ====================== -->
+
+        <div class="rank-card king">
+
+            <div class="rank-icon">
+                👑
+            </div>
+
+            <div class="rank-name">
+                KING
+            </div>
+
+            <div class="rank-description">
+                Rule the GUDU MC kingdom.
+            </div>
+
+            <ul class="features">
+
+                <li>
+                    King Prefix
+                </li>
+
+                <li>
+                    Special Rank Permissions
+                </li>
+
+                <li>
+                    Priority Support
+                </li>
+
+                <li>
+                    Exclusive Commands
+                </li>
+
+            </ul>
+
+            <div class="price">
+                $2.99
+                <small>/ lifetime</small>
+            </div>
+
+            <button
+                class="buy"
+                onclick="purchase('KING')"
+            >
+                PURCHASE
+            </button>
+
+        </div>
+
+
+
+        <!-- =====================
+             QUEEN
+        ====================== -->
+
+        <div class="rank-card queen">
+
+            <div class="rank-icon">
+                👸
+            </div>
+
+            <div class="rank-name">
+                QUEEN
+            </div>
+
+            <div class="rank-description">
+                Rule the kingdom in style.
+            </div>
+
+            <ul class="features">
+
+                <li>
+                    Queen Prefix
+                </li>
+
+                <li>
+                    Special Rank Permissions
+                </li>
+
+                <li>
+                    Priority Support
+                </li>
+
+                <li>
+                    Exclusive Commands
+                </li>
+
+            </ul>
+
+            <div class="price">
+                $2.99
+                <small>/ lifetime</small>
+            </div>
+
+            <button
+                class="buy"
+                onclick="purchase('QUEEN')"
+            >
+                PURCHASE
+            </button>
+
+        </div>
+
+
+
+        <!-- =====================
+             LEGEND
+        ====================== -->
+
+        <div class="rank-card legend">
+
+            <div class="rank-icon">
+                🌟
+            </div>
+
+            <div class="rank-name">
+                LEGEND
+            </div>
+
+            <div class="rank-description">
+                Become a true GUDU MC legend.
+            </div>
+
+            <ul class="features">
+
+                <li>
+                    Legend Prefix
+                </li>
+
+                <li>
+                    Special Rank Permissions
+                </li>
+
+                <li>
+                    Priority Support
+                </li>
+
+                <li>
+                    Exclusive Commands
+                </li>
+
+            </ul>
+
+            <div class="price">
+                $1.49
+                <small>/ lifetime</small>
+            </div>
+
+            <button
+                class="buy"
+                onclick="purchase('LEGEND')"
+            >
+                PURCHASE
+            </button>
+
+        </div>
+
+
+    </div>
+
+</main>
+
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+    © 2026
+    <strong>GUDU MC</strong>
+    • All Rights Reserved
+
+</footer>
+
+
+
+<!-- =========================
+     PURCHASE POPUP
+========================= -->
+
+<div
+    class="popup"
+    id="popup"
+>
+
+    <div class="popup-box">
+
+        <div class="popup-icon">
+            🎫
+        </div>
+
+
+        <h2 id="popupTitle">
+            Purchase Rank
+        </h2>
+
+
+        <p id="popupText">
+
+            To purchase this rank,
+            join our Discord server and
+            create a ticket.
+
         </p>
 
-    </footer>
+
+        <a
+            class="ticket"
+            href="https://discord.gg/HmHvmCQDX"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+
+            💬 CREATE TICKET ON DISCORD
+
+        </a>
 
 
-    <script src="script.js"></script>
+        <button
+            class="close"
+            onclick="closePopup()"
+        >
+
+            CANCEL
+
+        </button>
+
+    </div>
+
+</div>
+
+
+
+<script>
+
+/* =========================
+   PURCHASE FUNCTION
+========================= */
+
+function purchase(rank){
+
+    document.getElementById("popupTitle").innerText =
+        "Purchase " + rank;
+
+
+    document.getElementById("popupText").innerText =
+        "To purchase the " +
+        rank +
+        " rank, join our Discord server and create a ticket. Our staff will help you complete your purchase.";
+
+
+    document
+        .getElementById("popup")
+        .classList
+        .add("active");
+
+}
+
+
+/* =========================
+   CLOSE POPUP
+========================= */
+
+function closePopup(){
+
+    document
+        .getElementById("popup")
+        .classList
+        .remove("active");
+
+}
+
+
+/* =========================
+   CLOSE WHEN CLICKING
+   OUTSIDE THE BOX
+========================= */
+
+document
+    .getElementById("popup")
+    .addEventListener(
+        "click",
+        function(event){
+
+            if(event.target === this){
+
+                closePopup();
+
+            }
+
+        }
+    );
+
+
+/* =========================
+   ESC KEY
+========================= */
+
+document.addEventListener(
+    "keydown",
+    function(event){
+
+        if(event.key === "Escape"){
+
+            closePopup();
+
+        }
+
+    }
+);
+
+</script>
+
 
 </body>
 </html>
+```
